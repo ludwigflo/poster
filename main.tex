@@ -42,6 +42,7 @@
 \definecolor{first_level_color}{RGB}{179, 85, 65}
 \definecolor{second_level_color}{RGB}{128, 128, 128}
 
+\definecolor{orange2}{HTML}{f7972f}
 
 
 
@@ -64,7 +65,7 @@ center title, colback=blue!1!white, title={#1}, top=5pt, bottom=0pt, left=3pt, r
 \newtcolorbox{second_level}{colback=gray!1!white, colframe=second_level_color, top=1pt, bottom=0pt, left=3pt, right=3pt}
 
 
-\definecolor{background}{HTML}{12416e}
+\definecolor{background}{HTML}{ebf0f7}
 
 \begin{document}
 
@@ -108,35 +109,69 @@ at (0.71, 0.885) {{\fontsize{24}{24}\selectfont \color{white} stefan.altmann@zit
 
 % ======================= First Image ===================================================
 
+% Title scope
 \begin{scope}[on background layer]
     \fill[table_header](0\paperwidth,0.86\paperheight) 
                  rectangle (1\paperwidth, 1\paperheight);
 \end{scope}
 
-\begin{scope}[on background layer]
-    \fill[white, draw=table_header, line width=5pt, rounded corners=30pt,](0.015\paperwidth,0.445\paperheight) 
-                 rectangle (0.5\paperwidth, 0.015\paperheight);
-\end{scope}
 
+% Motivation Header
 \begin{scope}[on background layer]
-    \fill[white, , draw=table_header, line width=5pt, rounded corners=30pt,](0.015\paperwidth,0.475\paperheight) 
+    \fill[table_header, draw=table_header, line width=5pt](0.015\paperwidth, 0.815\paperheight) 
                  rectangle (0.5\paperwidth, 0.85\paperheight);
 \end{scope}
 
+% Motivation
 \begin{scope}[on background layer]
-    \fill[white, , draw=table_header, line width=5pt, rounded corners=30pt,](0.53\paperwidth,0.475\paperheight) 
+    \fill[white, draw=table_header, line width=5pt, ](0.015\paperwidth,0.475\paperheight) 
+                 rectangle (0.5\paperwidth, 0.815\paperheight);
+\end{scope}
+
+
+% Results and Analyzis Header
+\begin{scope}[on background layer]
+    \fill[table_header, draw=table_header, line width=5pt](0.53\paperwidth, 0.815\paperheight) 
                  rectangle (0.985\paperwidth, 0.85\paperheight);
 \end{scope}
 
+% Results and Analyzis
 \begin{scope}[on background layer]
-    \fill[white, , draw=table_header, line width=5pt, rounded corners=30pt,](0.53\paperwidth,0.015\paperheight) 
-                 rectangle (0.985\paperwidth, 0.25\paperheight);
+    \fill[white, draw=table_header, line width=5pt, ](0.53\paperwidth,0.475\paperheight) 
+                 rectangle (0.985\paperwidth, 0.815\paperheight);
+\end{scope}
+
+
+% Prompting Strategies Header
+\begin{scope}[on background layer]
+    \fill[table_header, draw=table_header, line width=5pt](0.015\paperwidth, 0.445\paperheight) 
+                 rectangle (0.5\paperwidth, 0.41\paperheight);
+\end{scope}
+
+% Prompting Strategies
+\begin{scope}[on background layer]
+    \fill[white, draw=table_header, line width=5pt](0.015\paperwidth,0.41\paperheight)   
+                 rectangle (0.5\paperwidth, 0.015\paperheight);
+\end{scope}
+
+
+% Examples Header
+\begin{scope}[on background layer]
+    \fill[table_header, draw=table_header, line width=5pt](0.53\paperwidth, 0.26\paperheight) 
+                 rectangle (0.985\paperwidth, 0.225\paperheight);
+\end{scope}
+
+
+% Exampels
+\begin{scope}[on background layer]
+    \fill[white, draw=table_header, line width=5pt](0.53\paperwidth,0.225\paperheight) 
+                 rectangle (0.985\paperwidth, 0.015\paperheight);
 \end{scope}
 
 
 
-\node[draw=none, rounded corners=6pt, align=center, anchor=east] 
-at (0.325, 0.83) {{\fontsize{40}{40}\selectfont \color{table_header} \underline{Motivation}}};
+\node[draw=table_header, align=center, anchor=east] 
+at (0.325, 0.8325) {{\fontsize{40}{40}\selectfont \color{white} \textbf{Motivation}}};
 
 \node[img, rounded corners=0pt, draw=table_header, line width=4pt, inner sep=0pt, minimum width=\wPortrait, minimum height=\hPortrait] (img1) at (0.18, 0.76)
 {\includegraphics[width=\wPortrait,height=\hPortrait]{imgs/refugees.png}};
@@ -184,9 +219,9 @@ at (0.4, 0.535) {
 
 
 \node[draw=none, rounded corners=6pt, align=center, anchor=east] 
-at (0.35, 0.43) {{\fontsize{40}{40}\selectfont \color{table_header} \underline{Prompting Strategies}}};
+at (0.37, 0.425) {{\fontsize{40}{40}\selectfont \color{white} \textbf{Prompting Strategies}}};
 
-\node[draw=none, inner sep=0pt] (fig1) at (0.14,0.345) {
+\node[draw=none, inner sep=0pt] (fig1) at (0.14,0.335) {
   \begin{minipage}{0.22\paperwidth}
         {\fontsize{20}{20}\selectfont
             \begin{mybox}{\textbf{Task Description}}
@@ -221,7 +256,7 @@ at (0.35, 0.43) {{\fontsize{40}{40}\selectfont \color{table_header} \underline{P
 };
 
 
-\node[draw=none, inner sep=0pt] (fig1) at (0.36,0.345) {
+\node[draw=none, inner sep=0pt] (fig1) at (0.36,0.335) {
   \begin{minipage}{0.22\paperwidth}
         {\fontsize{20}{20}\selectfont
             \begin{mybox}{\textbf{Chain of Thought}}
@@ -362,19 +397,16 @@ at (0.35, 0.43) {{\fontsize{40}{40}\selectfont \color{table_header} \underline{P
 % ============================= Results ==========================
 
 \node[draw=none, rounded corners=6pt, align=center, anchor=east] 
-at (0.9, 0.83) {{\fontsize{40}{40}\selectfont \color{table_header} \underline{Results and Analyzis}}};
+at (0.885, 0.832) {{\fontsize{40}{40}\selectfont \color{white} \textbf{Results and Analyzis}}};
 
 
-\node[img, rounded corners=0pt, draw=none] (img5) at (0.755, 0.723)
+\node[img, rounded corners=0pt, draw=none] (img5) at (0.755, 0.71)
 {\includegraphics[width=0.42\paperwidth]{imgs/results.png}};
 
 
-\node[draw=none, rounded corners=6pt, align=center, anchor=east] 
-at (0.8, 0.6) {{\fontsize{40}{40}\selectfont \color{table_header} \underline{Analyzis}}};
-
 
 \node[draw=none, rounded corners=6pt, align=center, anchor=east] 
-at (0.91, 0.54) {
+at (0.91, 0.55) {
 \begin{minipage}{0.325\paperwidth}
    {{\fontsize{27.5}{27.5}\selectfont \color{table_header} 
    
@@ -390,9 +422,9 @@ at (0.91, 0.54) {
 
 
 \node[draw=none, rounded corners=6pt, align=center, anchor=east] 
-at (0.89, 0.228) {{\fontsize{40}{40}\selectfont \color{table_header} \underline{Exemplary Error Cases}}};
+at (0.89, 0.24) {{\fontsize{40}{40}\selectfont \color{white} \textbf{Exemplary Error Cases}}};
 
-\node[img, rounded corners=0pt, draw=none] (img6) at (0.77, 0.12)
+\node[img, rounded corners=0pt, draw=none] (img6) at (0.76, 0.12)
 {\includegraphics[width=0.38\paperwidth]{imgs/table.png}};
 
 
